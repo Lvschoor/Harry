@@ -2,6 +2,8 @@ package be.intecbrussel.harry;
 
 public class CharArrayTools {
 
+    private static int x = 0;
+
     //created a private empty constructor to override the default public one
     private CharArrayTools() {
 
@@ -51,7 +53,7 @@ public class CharArrayTools {
     // for now only the case with 3 letter per word is considered
     public static char[][] generateDictionary(int numberOfLetters) {
         int combinations = (int) Math.pow(26, numberOfLetters);
-        int x = 0;
+        //int x = 0;
         char[][] dictionary = new char[combinations][numberOfLetters];
 
         for (int i = 0; i < 26; i++) {
@@ -64,6 +66,35 @@ public class CharArrayTools {
                 }
             }
         }
+        return dictionary;
+    }
+
+    // attempt to make the dictionary flexible for different lengths of the words
+    public static char[][] generateDictionaryBis(int numberOfLetters) {
+        //create array with correct size
+        int combinations = (int) Math.pow(26, numberOfLetters);
+        char[][] dictionary = new char[combinations][numberOfLetters];
+        //call method fillDictionary to fill the array using recursive method
+        dictionary = fillDictionary(dictionary, numberOfLetters);
+        return dictionary;
+    }
+
+    // method using recursion to fill the array with letters
+    public static char[][] fillDictionary(char[][] dictionary, int numberOfLetters) {
+
+        if (x==dictionary.length||numberOfLetters== 0){}
+
+
+
+        /*while (numberOfLetters > 0) {
+            for (int k = 0; k < 26; k++) {
+                for (int counter = numberOfLetters - 1; counter >= 0; counter--) {
+                    dictionary[x][counter] = (char) (97 + k);
+                }
+                x++;
+                fillDictionary(dictionary, numberOfLetters-1);
+            }
+        }*/
         return dictionary;
     }
 }

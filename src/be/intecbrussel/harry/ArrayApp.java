@@ -9,7 +9,7 @@ public class ArrayApp {
         int[] testArray = {1, 5, 3, 6};
         int number = 7;
         System.out.println("The given array of numbers: " + Arrays.toString(testArray));
-        System.out.println("The array is sorted: " + IntArrayTools.isSorted(testArray, true));
+        System.out.println("The array is sorted: " + IntArrayTools.isSorted(testArray, false));
         System.out.println("The sorted array: " + Arrays.toString(IntArrayTools.sort(testArray, true)));
         System.out.println("The reverse sorted array: " + Arrays.toString(IntArrayTools.sort(testArray, false)));
         System.out.println("The sorted array using bubble sort: " + Arrays.toString(IntArrayTools.sortBubble(testArray, true)));
@@ -21,7 +21,10 @@ public class ArrayApp {
         System.out.println("Cleaned and alphabetically (capital letters first) ordered array: "+ Arrays.toString(CharArrayTools.filterAlphabet(CharArrayTools.sort(testArrayChar))));
 
         System.out.println("The dictionary:");
+        int counter=1;
         for (char[] row: CharArrayTools.generateDictionary(3)){
+            System.out.print("Woord "+counter+": ");
+            counter++;
             for (char letter:row) {
                 System.out.print(letter);
             }
