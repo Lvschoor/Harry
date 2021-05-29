@@ -74,19 +74,24 @@ public class CharArrayTools {
         //create array with correct size
         int combinations = (int) Math.pow(26, numberOfLetters);
         int z = (int) Math.pow(26, numberOfLetters - 1);
-        System.out.println(z);
         char[][] dictionary = new char[combinations][numberOfLetters];
-
+        // loop through the columns
         for (int y = 0; y < numberOfLetters; y++) {
+            //reset row
             x = 0;
+            //
             for (int i = 1; i <= (int) Math.pow(26, y); i++) {
                 for (int letter = 0; letter < 26; letter++) {
+                    // fill in the the alphabet
                     for (int counter = 1; counter <= z; counter++) {
+                        //use the same letter z number of times
                         dictionary[x][y] = (char) (97 + letter);
+                        // goto next row
                         x++;
                     }
                 }
             }
+            // for the next loop, the letters should be repeated 26x less
             z = z / 26;
         }
         return dictionary;

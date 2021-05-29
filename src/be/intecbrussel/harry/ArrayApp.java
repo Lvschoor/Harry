@@ -22,8 +22,8 @@ public class ArrayApp {
 
         System.out.println("The dictionary:");
         int counter=1;
-        //only works for words of 3 letters
-        for (char[] row: CharArrayTools.generateDictionaryBis(3)){
+        //calling the "Bis" method as this one works for all lengths of numbers
+        for (char[] row: CharArrayTools.generateDictionaryBis(4)){
             System.out.print("Woord "+counter+": ");
             counter++;
             for (char letter:row) {
