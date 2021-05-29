@@ -73,31 +73,26 @@ public class CharArrayTools {
     public static char[][] generateDictionaryBis(int numberOfLetters) {
         //create array with correct size
         int combinations = (int) Math.pow(26, numberOfLetters);
+        int z = (int) Math.pow(26, numberOfLetters - 1);
+        System.out.println(z);
         char[][] dictionary = new char[combinations][numberOfLetters];
-        //call method fillDictionary to fill the array using recursive method
-        dictionary = fillDictionary(dictionary, numberOfLetters);
-        return dictionary;
-    }
 
-    // method using recursion to fill the array with letters
-    public static char[][] fillDictionary(char[][] dictionary, int numberOfLetters) {
-
-        if (x==dictionary.length||numberOfLetters== 0){}
-
-
-
-        /*while (numberOfLetters > 0) {
-            for (int k = 0; k < 26; k++) {
-                for (int counter = numberOfLetters - 1; counter >= 0; counter--) {
-                    dictionary[x][counter] = (char) (97 + k);
+        for (int y = 0; y < numberOfLetters; y++) {
+            x = 0;
+            for (int i = 1; i <= (int) Math.pow(26, y); i++) {
+                for (int letter = 0; letter < 26; letter++) {
+                    for (int counter = 1; counter <= z; counter++) {
+                        dictionary[x][y] = (char) (97 + letter);
+                        x++;
+                    }
                 }
-                x++;
-                fillDictionary(dictionary, numberOfLetters-1);
             }
-        }*/
+            z = z / 26;
+        }
         return dictionary;
     }
 }
+
 
 
 
